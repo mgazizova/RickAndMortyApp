@@ -51,6 +51,7 @@ final class CharactersCollectionDefaultViewModel: CharactersCollectionViewModel 
         networkService.request(request) { [weak self] result in
             switch result {
             case .success(let characters):
+                self?.metainfo = characters.info
                 self?.characters.append(contentsOf: characters.results)
                 self?.onFetchCharactersSucceed?()
             case .failure(let error):

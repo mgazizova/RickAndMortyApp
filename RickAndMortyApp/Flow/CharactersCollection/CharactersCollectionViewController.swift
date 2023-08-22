@@ -83,6 +83,9 @@ private extension CharactersCollectionViewController {
 extension CharactersCollectionViewController {
     func collectionView(_ collectionView: UICollectionView, 
                         numberOfItemsInSection section: Int) -> Int {
+        guard viewModel.characters.count != viewModel.metainfo?.count else {
+            return viewModel.characters.count
+        }
         return viewModel.characters.count + 1
     }
     
